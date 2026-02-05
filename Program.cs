@@ -1,385 +1,452 @@
-using System.CommandLine;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using ExtendSchemaGenerator;
+using Spectre.Console;
 
 class Program
 {
     private static readonly HttpClient _httpClient = new();
     private const string ExtendApiBase = "https://api.extend.app/v1";
     private const string ApiVersion = "2025-04-21";
+    
+    private static string? _apiKey;
+    private static string _workingDirectory = Directory.GetCurrentDirectory();
 
     static Program()
     {
-        // Set browser-like User-Agent for USCIS downloads
         _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
     }
 
-    static async Task<int> Main(string[] args)
+    static async Task Main(string[] args)
     {
-        var rootCommand = new RootCommand("USCIS Form Schema Generator - Download forms and extract schemas via Extend API");
+        // Load API key from environment
+        _apiKey = Environment.GetEnvironmentVariable("EXTEND_API_KEY");
 
-        // === Process Command (existing functionality) ===
-        var processCommand = new Command("process", "Process a PDF file to generate schema");
-        
-        var pdfOption = new Option<FileInfo>(
-            name: "--pdf",
-            description: "Path to the PDF file to process")
-        { IsRequired = true };
-
-        var outputOption = new Option<FileInfo?>(
-            name: "--output",
-            description: "Output JSON file path (default: <pdf-name>_Extend_Schema.json)");
-
-        var apiKeyOption = new Option<string?>(
-            name: "--api-key",
-            description: "Extend API key (or set EXTEND_API_KEY environment variable)");
-
-        processCommand.AddOption(pdfOption);
-        processCommand.AddOption(outputOption);
-        processCommand.AddOption(apiKeyOption);
-
-        processCommand.SetHandler(async (pdf, output, apiKey) =>
+        while (true)
         {
-            await ProcessPdf(pdf, output, apiKey);
-        }, pdfOption, outputOption, apiKeyOption);
+            Console.Clear();
+            DisplayHeader();
+            
+            var choice = AnsiConsole.Prompt(
+                new SelectionPrompt<string>()
+                    .Title("[green]What would you like to do?[/]")
+                    .PageSize(10)
+                    .AddChoices(new[]
+                    {
+                        "📥 Download USCIS Forms",
+                        "📋 List Available Forms",
+                        "🔧 Generate Schema from PDF",
+                        "⚡ Quick Process (Download + Schema)",
+                        "⚙️  Settings",
+                        "❌ Exit"
+                    }));
 
-        // === Download Command ===
-        var downloadCommand = new Command("download", "Download USCIS/EOIR form PDFs");
-
-        var formOption = new Option<string?>(
-            name: "--form",
-            description: "Specific form number to download (e.g., I-131, G-28)");
-
-        var allOption = new Option<bool>(
-            name: "--all",
-            description: "Download all forms in the catalog");
-
-        var outputDirOption = new Option<DirectoryInfo>(
-            name: "--output-dir",
-            description: "Directory to save downloaded PDFs",
-            getDefaultValue: () => new DirectoryInfo(Directory.GetCurrentDirectory()));
-
-        var includeInstructionsOption = new Option<bool>(
-            name: "--instructions",
-            description: "Also download instruction PDFs (USCIS forms only)",
-            getDefaultValue: () => true);
-
-        var sourceOption = new Option<string?>(
-            name: "--source",
-            description: "Filter by source: USCIS or EOIR");
-
-        downloadCommand.AddOption(formOption);
-        downloadCommand.AddOption(allOption);
-        downloadCommand.AddOption(outputDirOption);
-        downloadCommand.AddOption(includeInstructionsOption);
-        downloadCommand.AddOption(sourceOption);
-
-        downloadCommand.SetHandler(async (form, all, outputDir, includeInstructions, source) =>
-        {
-            await DownloadForms(form, all, outputDir, includeInstructions, source);
-        }, formOption, allOption, outputDirOption, includeInstructionsOption, sourceOption);
-
-        // === List Command ===
-        var listCommand = new Command("list", "List all forms in the catalog");
-        
-        var listSourceOption = new Option<string?>(
-            name: "--source",
-            description: "Filter by source: USCIS or EOIR");
-
-        listCommand.AddOption(listSourceOption);
-
-        listCommand.SetHandler((source) =>
-        {
-            ListForms(source);
-        }, listSourceOption);
-
-        // === Process-Form Command (download + process in one step) ===
-        var processFormCommand = new Command("process-form", "Download a form and generate schema in one step");
-        
-        var formNumberOption = new Option<string>(
-            name: "--form",
-            description: "Form number to process (e.g., I-131)")
-        { IsRequired = true };
-
-        var processOutputDirOption = new Option<DirectoryInfo>(
-            name: "--output-dir",
-            description: "Directory for output files",
-            getDefaultValue: () => new DirectoryInfo(Directory.GetCurrentDirectory()));
-
-        var processApiKeyOption = new Option<string?>(
-            name: "--api-key",
-            description: "Extend API key (or set EXTEND_API_KEY environment variable)");
-
-        processFormCommand.AddOption(formNumberOption);
-        processFormCommand.AddOption(processOutputDirOption);
-        processFormCommand.AddOption(processApiKeyOption);
-
-        processFormCommand.SetHandler(async (formNumber, outputDir, apiKey) =>
-        {
-            await ProcessFormByNumber(formNumber, outputDir, apiKey);
-        }, formNumberOption, processOutputDirOption, processApiKeyOption);
-
-        rootCommand.AddCommand(processCommand);
-        rootCommand.AddCommand(downloadCommand);
-        rootCommand.AddCommand(listCommand);
-        rootCommand.AddCommand(processFormCommand);
-
-        return await rootCommand.InvokeAsync(args);
-    }
-
-    static void ListForms(string? sourceFilter)
-    {
-        var forms = FormCatalog.AllForms.AsEnumerable();
-        
-        if (!string.IsNullOrEmpty(sourceFilter))
-        {
-            if (Enum.TryParse<FormCatalog.FormSource>(sourceFilter, true, out var source))
+            switch (choice)
             {
-                forms = forms.Where(f => f.Source == source);
-            }
-            else
-            {
-                Console.Error.WriteLine($"Invalid source: {sourceFilter}. Use USCIS or EOIR.");
-                return;
+                case "📥 Download USCIS Forms":
+                    await DownloadFormsMenu();
+                    break;
+                case "📋 List Available Forms":
+                    ListFormsMenu();
+                    break;
+                case "🔧 Generate Schema from PDF":
+                    await GenerateSchemaMenu();
+                    break;
+                case "⚡ Quick Process (Download + Schema)":
+                    await QuickProcessMenu();
+                    break;
+                case "⚙️  Settings":
+                    SettingsMenu();
+                    break;
+                case "❌ Exit":
+                    AnsiConsole.MarkupLine("[grey]Goodbye![/]");
+                    return;
             }
         }
-
-        Console.WriteLine($"{"Form",-12} {"Source",-8} {"Name"}");
-        Console.WriteLine(new string('-', 80));
-
-        foreach (var form in forms.OrderBy(f => f.FormNumber))
-        {
-            Console.WriteLine($"{form.FormNumber,-12} {form.Source,-8} {form.DisplayName}");
-        }
-
-        Console.WriteLine();
-        Console.WriteLine($"Total: {forms.Count()} forms");
     }
 
-    static async Task DownloadForms(string? formNumber, bool all, DirectoryInfo outputDir, bool includeInstructions, string? sourceFilter)
+    static void DisplayHeader()
     {
-        if (!all && string.IsNullOrEmpty(formNumber))
-        {
-            Console.Error.WriteLine("Error: Specify --form <number> or use --all to download all forms.");
-            Environment.Exit(1);
-        }
+        AnsiConsole.Write(
+            new FigletText("USCIS Forms")
+                .LeftJustified()
+                .Color(Color.Blue));
+        
+        AnsiConsole.MarkupLine("[grey]Extend Schema Generator[/]");
+        AnsiConsole.MarkupLine($"[grey]Working Directory:[/] [cyan]{_workingDirectory}[/]");
+        AnsiConsole.MarkupLine($"[grey]API Key:[/] {(_apiKey != null ? "[green]Configured ✓[/]" : "[red]Not Set ✗[/]")}");
+        AnsiConsole.WriteLine();
+    }
 
-        outputDir.Create();
+    static async Task DownloadFormsMenu()
+    {
+        Console.Clear();
+        AnsiConsole.MarkupLine("[bold blue]📥 Download USCIS Forms[/]\n");
+
+        var choice = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+                .Title("Select download option:")
+                .AddChoices(new[]
+                {
+                    "Download ALL USCIS Forms",
+                    "Download ALL EOIR Forms", 
+                    "Download ALL Forms (USCIS + EOIR)",
+                    "Download Specific Form",
+                    "← Back to Main Menu"
+                }));
+
+        if (choice == "← Back to Main Menu") return;
+
+        // Get output directory
+        var outputDir = AnsiConsole.Prompt(
+            new TextPrompt<string>("Output directory:")
+                .DefaultValue(Path.Combine(_workingDirectory, "forms"))
+                .ShowDefaultValue());
+
+        Directory.CreateDirectory(outputDir);
+
+        var includeInstructions = AnsiConsole.Confirm("Download instruction PDFs too?", true);
 
         IEnumerable<FormCatalog.FormInfo> formsToDownload;
 
-        if (all)
+        if (choice == "Download Specific Form")
         {
-            formsToDownload = FormCatalog.AllForms;
-            
-            if (!string.IsNullOrEmpty(sourceFilter))
-            {
-                if (Enum.TryParse<FormCatalog.FormSource>(sourceFilter, true, out var source))
-                {
-                    formsToDownload = formsToDownload.Where(f => f.Source == source);
-                }
-            }
+            var formNumber = AnsiConsole.Prompt(
+                new SelectionPrompt<string>()
+                    .Title("Select form to download:")
+                    .PageSize(15)
+                    .EnableSearch()
+                    .AddChoices(FormCatalog.AllForms.OrderBy(f => f.FormNumber).Select(f => $"{f.FormNumber} - {f.DisplayName}")));
+
+            var selectedFormNumber = formNumber.Split(" - ")[0];
+            formsToDownload = new[] { FormCatalog.FindForm(selectedFormNumber)! };
         }
         else
         {
-            var form = FormCatalog.FindForm(formNumber!);
-            if (form == null)
+            formsToDownload = choice switch
             {
-                Console.Error.WriteLine($"Error: Form '{formNumber}' not found in catalog.");
-                Console.Error.WriteLine("Use 'list' command to see available forms.");
-                Environment.Exit(1);
-            }
-            formsToDownload = new[] { form };
+                "Download ALL USCIS Forms" => FormCatalog.AllForms.Where(f => f.Source == FormCatalog.FormSource.USCIS),
+                "Download ALL EOIR Forms" => FormCatalog.AllForms.Where(f => f.Source == FormCatalog.FormSource.EOIR),
+                _ => FormCatalog.AllForms
+            };
         }
 
         var formList = formsToDownload.ToList();
-        Console.WriteLine($"Downloading {formList.Count} form(s) to {outputDir.FullName}");
-        Console.WriteLine();
-
-        var successCount = 0;
-        var failCount = 0;
-
-        foreach (var form in formList)
-        {
-            Console.Write($"  {form.FormNumber,-12} ");
-            
-            try
+        
+        AnsiConsole.WriteLine();
+        await AnsiConsole.Progress()
+            .AutoClear(false)
+            .Columns(new ProgressColumn[]
             {
-                var url = FormCatalog.GetDownloadUrl(form);
-                var fileName = $"{form.FormNumber}.pdf";
-                var filePath = Path.Combine(outputDir.FullName, fileName);
+                new TaskDescriptionColumn(),
+                new ProgressBarColumn(),
+                new PercentageColumn(),
+                new SpinnerColumn(),
+            })
+            .StartAsync(async ctx =>
+            {
+                var task = ctx.AddTask($"[green]Downloading {formList.Count} forms[/]", maxValue: formList.Count);
 
-                var response = await _httpClient.GetAsync(url);
-                
-                if (response.IsSuccessStatusCode)
+                foreach (var form in formList)
                 {
-                    var bytes = await response.Content.ReadAsByteArrayAsync();
-                    await File.WriteAllBytesAsync(filePath, bytes);
-                    Console.WriteLine($"✓ Downloaded ({bytes.Length / 1024} KB)");
-                    successCount++;
-
-                    // Try to download instructions
-                    if (includeInstructions && form.Source == FormCatalog.FormSource.USCIS)
+                    task.Description = $"[green]Downloading {form.FormNumber}[/]";
+                    
+                    try
                     {
-                        var instrUrl = FormCatalog.GetInstructionsUrl(form);
-                        if (instrUrl != null)
+                        var url = FormCatalog.GetDownloadUrl(form);
+                        var response = await _httpClient.GetAsync(url);
+                        
+                        if (response.IsSuccessStatusCode)
                         {
-                            Console.Write($"  {form.FormNumber + "-instr",-12} ");
-                            try
+                            var bytes = await response.Content.ReadAsByteArrayAsync();
+                            var filePath = Path.Combine(outputDir, $"{form.FormNumber}.pdf");
+                            await File.WriteAllBytesAsync(filePath, bytes);
+
+                            if (includeInstructions && form.Source == FormCatalog.FormSource.USCIS)
                             {
-                                var instrResponse = await _httpClient.GetAsync(instrUrl);
-                                if (instrResponse.IsSuccessStatusCode)
+                                var instrUrl = FormCatalog.GetInstructionsUrl(form);
+                                if (instrUrl != null)
                                 {
-                                    var instrBytes = await instrResponse.Content.ReadAsByteArrayAsync();
-                                    var instrPath = Path.Combine(outputDir.FullName, $"{form.FormNumber}-instructions.pdf");
-                                    await File.WriteAllBytesAsync(instrPath, instrBytes);
-                                    Console.WriteLine($"✓ Downloaded ({instrBytes.Length / 1024} KB)");
+                                    try
+                                    {
+                                        var instrResponse = await _httpClient.GetAsync(instrUrl);
+                                        if (instrResponse.IsSuccessStatusCode)
+                                        {
+                                            var instrBytes = await instrResponse.Content.ReadAsByteArrayAsync();
+                                            var instrPath = Path.Combine(outputDir, $"{form.FormNumber}-instructions.pdf");
+                                            await File.WriteAllBytesAsync(instrPath, instrBytes);
+                                        }
+                                    }
+                                    catch { }
                                 }
-                                else
-                                {
-                                    Console.WriteLine($"⚠ Not available ({instrResponse.StatusCode})");
-                                }
-                            }
-                            catch
-                            {
-                                Console.WriteLine("⚠ Not available");
                             }
                         }
                     }
-                }
-                else
-                {
-                    Console.WriteLine($"✗ Failed ({response.StatusCode})");
-                    failCount++;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"✗ Error: {ex.Message}");
-                failCount++;
-            }
-        }
+                    catch { }
 
-        Console.WriteLine();
-        Console.WriteLine($"Complete: {successCount} succeeded, {failCount} failed");
+                    task.Increment(1);
+                }
+
+                task.Description = "[green]Download complete![/]";
+            });
+
+        AnsiConsole.MarkupLine($"\n[green]✓ Forms saved to:[/] {outputDir}");
+        AnsiConsole.MarkupLine("\n[grey]Press any key to continue...[/]");
+        Console.ReadKey(true);
     }
 
-    static async Task ProcessFormByNumber(string formNumber, DirectoryInfo outputDir, string? apiKey)
+    static void ListFormsMenu()
     {
-        var form = FormCatalog.FindForm(formNumber);
-        if (form == null)
+        Console.Clear();
+        AnsiConsole.MarkupLine("[bold blue]📋 Available Forms[/]\n");
+
+        var choice = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+                .Title("Filter by source:")
+                .AddChoices(new[] { "All Forms", "USCIS Only", "EOIR Only", "← Back" }));
+
+        if (choice == "← Back") return;
+
+        var forms = choice switch
         {
-            Console.Error.WriteLine($"Error: Form '{formNumber}' not found in catalog.");
-            Console.Error.WriteLine("Use 'list' command to see available forms.");
-            Environment.Exit(1);
+            "USCIS Only" => FormCatalog.AllForms.Where(f => f.Source == FormCatalog.FormSource.USCIS),
+            "EOIR Only" => FormCatalog.AllForms.Where(f => f.Source == FormCatalog.FormSource.EOIR),
+            _ => FormCatalog.AllForms.AsEnumerable()
+        };
+
+        var table = new Table()
+            .Border(TableBorder.Rounded)
+            .AddColumn("[bold]Form[/]")
+            .AddColumn("[bold]Source[/]")
+            .AddColumn("[bold]Description[/]");
+
+        foreach (var form in forms.OrderBy(f => f.FormNumber))
+        {
+            var sourceColor = form.Source == FormCatalog.FormSource.USCIS ? "blue" : "yellow";
+            table.AddRow(
+                $"[white]{form.FormNumber}[/]",
+                $"[{sourceColor}]{form.Source}[/]",
+                form.DisplayName);
         }
 
-        outputDir.Create();
+        AnsiConsole.Write(table);
+        AnsiConsole.MarkupLine($"\n[grey]Total: {forms.Count()} forms[/]");
+        AnsiConsole.MarkupLine("\n[grey]Press any key to continue...[/]");
+        Console.ReadKey(true);
+    }
 
-        Console.WriteLine($"Processing form: {form.FormNumber} - {form.DisplayName}");
-        Console.WriteLine($"Output directory: {outputDir.FullName}");
-        Console.WriteLine();
+    static async Task GenerateSchemaMenu()
+    {
+        Console.Clear();
+        AnsiConsole.MarkupLine("[bold blue]🔧 Generate Schema from PDF[/]\n");
+
+        if (string.IsNullOrEmpty(_apiKey))
+        {
+            AnsiConsole.MarkupLine("[red]Error: Extend API key not configured![/]");
+            AnsiConsole.MarkupLine("[grey]Go to Settings to configure your API key.[/]");
+            AnsiConsole.MarkupLine("\n[grey]Press any key to continue...[/]");
+            Console.ReadKey(true);
+            return;
+        }
+
+        var pdfPath = AnsiConsole.Prompt(
+            new TextPrompt<string>("Enter path to PDF file:")
+                .Validate(path =>
+                {
+                    if (!File.Exists(path))
+                        return ValidationResult.Error("[red]File not found[/]");
+                    if (!path.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase))
+                        return ValidationResult.Error("[red]File must be a PDF[/]");
+                    return ValidationResult.Success();
+                }));
+
+        var defaultOutput = Path.Combine(
+            Path.GetDirectoryName(pdfPath) ?? ".",
+            $"{Path.GetFileNameWithoutExtension(pdfPath)}_Extend_Schema.json");
+
+        var outputPath = AnsiConsole.Prompt(
+            new TextPrompt<string>("Output JSON path:")
+                .DefaultValue(defaultOutput)
+                .ShowDefaultValue());
+
+        await ProcessPdfWithProgress(pdfPath, outputPath);
+
+        AnsiConsole.MarkupLine("\n[grey]Press any key to continue...[/]");
+        Console.ReadKey(true);
+    }
+
+    static async Task QuickProcessMenu()
+    {
+        Console.Clear();
+        AnsiConsole.MarkupLine("[bold blue]⚡ Quick Process (Download + Schema)[/]\n");
+
+        if (string.IsNullOrEmpty(_apiKey))
+        {
+            AnsiConsole.MarkupLine("[red]Error: Extend API key not configured![/]");
+            AnsiConsole.MarkupLine("[grey]Go to Settings to configure your API key.[/]");
+            AnsiConsole.MarkupLine("\n[grey]Press any key to continue...[/]");
+            Console.ReadKey(true);
+            return;
+        }
+
+        var formNumber = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+                .Title("Select form to process:")
+                .PageSize(15)
+                .EnableSearch()
+                .AddChoices(FormCatalog.AllForms.OrderBy(f => f.FormNumber).Select(f => $"{f.FormNumber} - {f.DisplayName}")));
+
+        var selectedFormNumber = formNumber.Split(" - ")[0];
+        var form = FormCatalog.FindForm(selectedFormNumber)!;
+
+        var outputDir = AnsiConsole.Prompt(
+            new TextPrompt<string>("Output directory:")
+                .DefaultValue(Path.Combine(_workingDirectory, "output", form.FormNumber))
+                .ShowDefaultValue());
+
+        Directory.CreateDirectory(outputDir);
+
+        AnsiConsole.WriteLine();
 
         // Step 1: Download
-        Console.Write("Downloading PDF... ");
-        var pdfPath = Path.Combine(outputDir.FullName, $"{form.FormNumber}.pdf");
+        var pdfPath = Path.Combine(outputDir, $"{form.FormNumber}.pdf");
         
-        try
-        {
-            var url = FormCatalog.GetDownloadUrl(form);
-            var response = await _httpClient.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-            var bytes = await response.Content.ReadAsByteArrayAsync();
-            await File.WriteAllBytesAsync(pdfPath, bytes);
-            Console.WriteLine($"OK ({bytes.Length / 1024} KB)");
-        }
-        catch (Exception ex)
-        {
-            Console.Error.WriteLine($"Failed: {ex.Message}");
-            Environment.Exit(1);
-        }
+        await AnsiConsole.Status()
+            .Spinner(Spinner.Known.Dots)
+            .StartAsync($"Downloading {form.FormNumber}...", async ctx =>
+            {
+                var url = FormCatalog.GetDownloadUrl(form);
+                var response = await _httpClient.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+                var bytes = await response.Content.ReadAsByteArrayAsync();
+                await File.WriteAllBytesAsync(pdfPath, bytes);
+            });
+
+        AnsiConsole.MarkupLine($"[green]✓[/] Downloaded: {pdfPath}");
 
         // Step 2: Process with Extend
-        var schemaPath = Path.Combine(outputDir.FullName, $"{form.FormNumber}_Extend_Schema.json");
-        await ProcessPdf(new FileInfo(pdfPath), new FileInfo(schemaPath), apiKey);
+        var schemaPath = Path.Combine(outputDir, $"{form.FormNumber}_Extend_Schema.json");
+        await ProcessPdfWithProgress(pdfPath, schemaPath);
+
+        AnsiConsole.MarkupLine("\n[grey]Press any key to continue...[/]");
+        Console.ReadKey(true);
     }
 
-    static async Task ProcessPdf(FileInfo pdfFile, FileInfo? outputFile, string? apiKey)
+    static void SettingsMenu()
     {
-        // Validate PDF exists
-        if (!pdfFile.Exists)
+        Console.Clear();
+        AnsiConsole.MarkupLine("[bold blue]⚙️ Settings[/]\n");
+
+        var table = new Table()
+            .Border(TableBorder.Rounded)
+            .AddColumn("[bold]Setting[/]")
+            .AddColumn("[bold]Value[/]");
+
+        table.AddRow("Working Directory", _workingDirectory);
+        table.AddRow("API Key", _apiKey != null ? $"[green]{_apiKey[..10]}...{_apiKey[^4..]}[/]" : "[red]Not Set[/]");
+
+        AnsiConsole.Write(table);
+        AnsiConsole.WriteLine();
+
+        var choice = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+                .Title("What would you like to change?")
+                .AddChoices(new[]
+                {
+                    "Set API Key",
+                    "Change Working Directory",
+                    "← Back to Main Menu"
+                }));
+
+        switch (choice)
         {
-            Console.Error.WriteLine($"Error: PDF file not found: {pdfFile.FullName}");
-            Environment.Exit(1);
+            case "Set API Key":
+                var newKey = AnsiConsole.Prompt(
+                    new TextPrompt<string>("Enter Extend API Key:")
+                        .Secret());
+                _apiKey = newKey;
+                AnsiConsole.MarkupLine("[green]✓ API Key updated![/]");
+                AnsiConsole.MarkupLine("[yellow]Note: This is only saved for this session. Set EXTEND_API_KEY environment variable for persistence.[/]");
+                AnsiConsole.MarkupLine("\n[grey]Press any key to continue...[/]");
+                Console.ReadKey(true);
+                break;
+
+            case "Change Working Directory":
+                var newDir = AnsiConsole.Prompt(
+                    new TextPrompt<string>("Enter working directory:")
+                        .DefaultValue(_workingDirectory)
+                        .Validate(dir =>
+                        {
+                            try
+                            {
+                                Directory.CreateDirectory(dir);
+                                return ValidationResult.Success();
+                            }
+                            catch
+                            {
+                                return ValidationResult.Error("[red]Invalid directory path[/]");
+                            }
+                        }));
+                _workingDirectory = newDir;
+                AnsiConsole.MarkupLine("[green]✓ Working directory updated![/]");
+                AnsiConsole.MarkupLine("\n[grey]Press any key to continue...[/]");
+                Console.ReadKey(true);
+                break;
         }
+    }
 
-        // Get API key
-        var key = apiKey ?? Environment.GetEnvironmentVariable("EXTEND_API_KEY");
-        if (string.IsNullOrEmpty(key))
-        {
-            Console.Error.WriteLine("Error: API key required. Use --api-key or set EXTEND_API_KEY environment variable.");
-            Environment.Exit(1);
-        }
-
-        // Set default output path
-        var outputPath = outputFile?.FullName 
-            ?? Path.Combine(
-                pdfFile.DirectoryName ?? ".", 
-                $"{Path.GetFileNameWithoutExtension(pdfFile.Name)}_Extend_Schema.json");
-
-        Console.WriteLine($"Processing: {pdfFile.Name}");
-        Console.WriteLine($"Output: {outputPath}");
-        Console.WriteLine();
-
+    static async Task ProcessPdfWithProgress(string pdfPath, string outputPath)
+    {
         try
         {
-            // Step 1: Upload file
-            Console.Write("Uploading to Extend API... ");
-            var fileId = await UploadFile(pdfFile, key);
-            Console.WriteLine($"OK (File ID: {fileId})");
+            string? fileId = null;
+            string? runId = null;
+            JsonNode? schema = null;
 
-            // Step 2: Start edit run
-            Console.Write("Starting schema extraction... ");
-            var runId = await StartEditRun(fileId, key);
-            Console.WriteLine($"OK (Run ID: {runId})");
+            await AnsiConsole.Status()
+                .Spinner(Spinner.Known.Dots)
+                .StartAsync("Processing...", async ctx =>
+                {
+                    // Upload
+                    ctx.Status("Uploading to Extend API...");
+                    fileId = await UploadFile(pdfPath, _apiKey!);
 
-            // Step 3: Poll for completion
-            Console.Write("Processing");
-            var schema = await WaitForCompletion(runId, key);
-            Console.WriteLine(" Done!");
+                    // Start run
+                    ctx.Status("Starting schema extraction...");
+                    runId = await StartEditRun(fileId, _apiKey!);
 
-            // Step 4: Save schema
-            Console.Write("Saving schema... ");
-            var options = new JsonSerializerOptions { WriteIndented = true };
-            var json = JsonSerializer.Serialize(schema, options);
-            await File.WriteAllTextAsync(outputPath, json);
-            Console.WriteLine("OK");
+                    // Poll
+                    ctx.Status("Extracting schema (this may take 30-60 seconds)...");
+                    schema = await WaitForCompletion(runId, _apiKey!);
 
-            // Summary
+                    // Save
+                    ctx.Status("Saving schema...");
+                    var options = new JsonSerializerOptions { WriteIndented = true };
+                    var json = JsonSerializer.Serialize(schema, options);
+                    await File.WriteAllTextAsync(outputPath, json);
+                });
+
             var fieldCount = schema?["properties"]?.AsObject()?.Count ?? 0;
-            Console.WriteLine();
-            Console.WriteLine($"✅ Schema generated: {fieldCount} fields");
-            Console.WriteLine($"   Output: {outputPath}");
+            
+            AnsiConsole.MarkupLine($"[green]✓[/] Schema generated: [cyan]{fieldCount} fields[/]");
+            AnsiConsole.MarkupLine($"[green]✓[/] Saved to: [cyan]{outputPath}[/]");
         }
         catch (Exception ex)
         {
-            Console.Error.WriteLine();
-            Console.Error.WriteLine($"Error: {ex.Message}");
-            Environment.Exit(1);
+            AnsiConsole.MarkupLine($"[red]✗ Error: {ex.Message}[/]");
         }
     }
 
-    static async Task<string> UploadFile(FileInfo pdfFile, string apiKey)
+    static async Task<string> UploadFile(string pdfPath, string apiKey)
     {
         using var content = new MultipartFormDataContent();
-        var fileBytes = await File.ReadAllBytesAsync(pdfFile.FullName);
+        var fileBytes = await File.ReadAllBytesAsync(pdfPath);
         var fileContent = new ByteArrayContent(fileBytes);
         fileContent.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
-        content.Add(fileContent, "file", pdfFile.Name);
+        content.Add(fileContent, "file", Path.GetFileName(pdfPath));
 
         var request = new HttpRequestMessage(HttpMethod.Post, $"{ExtendApiBase}/files")
         {
@@ -392,9 +459,7 @@ class Program
         var responseBody = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode)
-        {
             throw new Exception($"Upload failed ({response.StatusCode}): {responseBody}");
-        }
 
         var json = JsonNode.Parse(responseBody);
         return json?["id"]?.GetValue<string>() 
@@ -417,9 +482,7 @@ class Program
         var responseBody = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode)
-        {
             throw new Exception($"Edit run failed ({response.StatusCode}): {responseBody}");
-        }
 
         var json = JsonNode.Parse(responseBody);
         return json?["id"]?.GetValue<string>() 
@@ -428,13 +491,12 @@ class Program
 
     static async Task<JsonNode?> WaitForCompletion(string runId, string apiKey)
     {
-        var maxAttempts = 60; // 5 minutes max
+        var maxAttempts = 120;
         var attempt = 0;
 
         while (attempt < maxAttempts)
         {
-            await Task.Delay(5000); // Wait 5 seconds between polls
-            Console.Write(".");
+            await Task.Delay(3000);
 
             var request = new HttpRequestMessage(HttpMethod.Get, $"{ExtendApiBase}/edit-runs/{runId}");
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
@@ -444,21 +506,16 @@ class Program
             var responseBody = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
-            {
                 throw new Exception($"Status check failed ({response.StatusCode}): {responseBody}");
-            }
 
             var json = JsonNode.Parse(responseBody);
             var status = json?["status"]?.GetValue<string>();
 
             if (status == "complete")
-            {
                 return json?["outputSchema"];
-            }
-            else if (status != "running" && status != "pending")
-            {
+            
+            if (status != "running" && status != "pending")
                 throw new Exception($"Edit run failed with status: {status}");
-            }
 
             attempt++;
         }
