@@ -51,11 +51,34 @@ dotnet run
 | USCIS  | 43    | I-131, I-485, G-28, N-400, AR-11 |
 | EOIR   | 9     | EOIR-28, EOIR-42A, EOIR-61 |
 
-## Environment Variables
+## Configuration
+
+### Option 1: appsettings.json (Recommended)
+
+Copy the example file and add your API key:
+```bash
+cp appsettings.example.json appsettings.json
+```
+
+Then edit `appsettings.json`:
+```json
+{
+  "ExtendApi": {
+    "ApiKey": "your-extend-api-key-here"
+  },
+  "WorkingDirectory": "/optional/custom/path"
+}
+```
+
+### Option 2: Environment Variable
 
 | Variable | Description |
 |----------|-------------|
-| `EXTEND_API_KEY` | Extend API key (can also be set in app Settings) |
+| `EXTEND_API_KEY` | Extend API key |
+
+### Option 3: Settings Menu
+
+Set the API key interactively through the app's Settings menu (session-only).
 
 ## Screenshots
 
