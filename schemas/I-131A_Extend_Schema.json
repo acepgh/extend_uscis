@@ -1,0 +1,3204 @@
+{
+  "type": "object",
+  "required": [
+    "uscis_use_only_receipt",
+    "uscis_use_only_action_block",
+    "document_issued_transportation_letter",
+    "document_issued_boarding_foil",
+    "document_hand_delivered_by",
+    "uscis_use_only_document_hand_delivered_date",
+    "attorney_info_g28_attached",
+    "attorney_info_state_bar_number",
+    "attorney_info_uscis_online_account_number",
+    "part_1_family_name_last_name",
+    "part_1_current_mailing_address_in_care_of_name",
+    "part_1_information_about_you_given_name",
+    "part_1_current_mailing_address_street_number_and_name",
+    "part_1_information_about_you_middle_name",
+    "part_1_mailing_address_apt",
+    "part_1_mailing_address_ste",
+    "part_1_mailing_address_flr",
+    "part_1_current_mailing_address_apt_ste_flr_number",
+    "part_1_mailing_address_city_or_town",
+    "part_1_mailing_address_state",
+    "information_about_you_mailing_address_zip_code",
+    "information_about_you_name_change_yes",
+    "information_about_you_name_change_no",
+    "information_about_you_mailing_address_province",
+    "information_about_you_mailing_address_postal_code",
+    "part_1_current_mailing_address_country",
+    "part_1_mailing_address_same_as_physical_yes",
+    "part_1_mailing_address_same_as_physical_no",
+    "page_1_pdf417_barcode",
+    "reason_for_application_damaged_ead_travel_endorsement",
+    "reason_for_application_other_reason",
+    "physical_address_street_number_and_name",
+    "reason_for_application_other_explanation",
+    "part_1_physical_address_unit_type_apt",
+    "part_1_physical_address_unit_type_ste",
+    "part_1_physical_address_unit_type_flr",
+    "physical_address_apt_ste_flr_number",
+    "part_1_physical_address_city_or_town",
+    "part_1_physical_address_state",
+    "part_1_physical_address_zip_code",
+    "part_3_processing_info_date_departed_us",
+    "part_3_processing_info_date_of_intended_travel",
+    "part_1_other_info_alien_registration_number",
+    "part_3_processing_info_permanent_resident_card_expiration_date",
+    "part_1_uscis_online_account_number",
+    "part_3_date_expiration_reentry_permit",
+    "part_1_social_security_number",
+    "part_3_date_expiration_i512_i766",
+    "part_1_date_of_birth",
+    "part_1_sex_male",
+    "part_1_sex_female",
+    "part_3_i131_receipt_number",
+    "part_1_country_of_birth",
+    "part_1_country_of_citizenship_or_nationality",
+    "processing_information_exclusion_proceedings_yes",
+    "processing_information_exclusion_proceedings_no",
+    "reason_for_application_lost_stolen_destroyed_card",
+    "reason_for_application_card_issued_never_received",
+    "processing_information_abandoned_status_yes",
+    "processing_information_abandoned_status_no",
+    "reason_for_application_card_damaged",
+    "reason_for_application_card_expired",
+    "processing_info_carrier_document_issued_yes",
+    "processing_info_carrier_document_issued_no",
+    "reason_for_application_i512_lost_stolen_destroyed",
+    "reason_for_application_i512_damaged",
+    "processing_info_carrier_document_date_issued",
+    "reason_for_application_i766_lost_stolen_destroyed",
+    "processing_info_carrier_document_disposition",
+    "footer_pdf417_barcode",
+    "processing_info_revocation_yes",
+    "processing_info_revocation_no",
+    "processing_info_date_of_revocation",
+    "processing_info_reason_for_revocation",
+    "applicant_signature_applicant_signature",
+    "applicant_signature_date",
+    "applicant_statement_english_proficiency",
+    "applicant_statement_interpreter_used",
+    "applicant_statement_interpreter_language",
+    "applicant_statement_preparer_request_checkbox",
+    "interpreter_family_name",
+    "applicant_statement_preparer_name",
+    "interpreter_given_name",
+    "interpreter_business_name",
+    "applicant_daytime_telephone_number",
+    "applicant_contact_info_mobile_telephone_number",
+    "applicant_contact_info_email_address",
+    "document_processing_barcode",
+    "interpreter_mailing_address_street_number_and_name",
+    "interpreter_mailing_address_unit_type_apt",
+    "interpreter_mailing_address_unit_type_ste",
+    "interpreter_mailing_address_unit_type_flr",
+    "interpreter_mailing_address_apt_ste_flr_number",
+    "interpreter_mailing_address_city_or_town",
+    "preparer_full_name_family_name",
+    "interpreter_mailing_address_state",
+    "interpreter_mailing_address_zip_code",
+    "preparer_full_name_given_name",
+    "interpreter_mailing_address_province",
+    "interpreter_mailing_address_postal_code",
+    "preparer_business_name",
+    "interpreter_mailing_address_country",
+    "preparer_mailing_address_street_number_name",
+    "preparer_mailing_address_apt_checkbox",
+    "preparer_mailing_address_ste_checkbox",
+    "preparer_mailing_address_flr_checkbox",
+    "preparer_mailing_address_unit_number",
+    "interpreter_contact_info_daytime_phone",
+    "preparer_mailing_address_city_or_town",
+    "preparer_mailing_address_state",
+    "preparer_mailing_address_zip_code",
+    "interpreter_mobile_telephone_number",
+    "preparer_mailing_address_province",
+    "interpreter_contact_info_email_address",
+    "preparer_mailing_address_postal_code",
+    "preparer_mailing_address_country",
+    "interpreter_certification_language_fluent",
+    "preparer_contact_info_daytime_phone",
+    "preparer_contact_info_mobile_number",
+    "preparer_contact_info_email_address",
+    "interpreter_signature",
+    "interpreter_signature_date",
+    "form_barcode",
+    "header_internal_tracking",
+    "preparer_statement_not_attorney",
+    "preparer_statement_attorney",
+    "preparer_representation_extends",
+    "preparer_representation_does_not_extend",
+    "preparer_signature",
+    "preparer_date_of_signature",
+    "page_barcode",
+    "additional_information_page_number",
+    "additional_information_part_number",
+    "additional_information_item_number",
+    "additional_information_text",
+    "additional_information_family_name",
+    "additional_information_given_name",
+    "additional_information_middle_name",
+    "additional_information_alien_registration_number",
+    "additional_information_6a_page_number",
+    "additional_information_6b_part_number",
+    "additional_information_6c_item_number",
+    "additional_information_3a_page_number",
+    "additional_information_3b_part_number",
+    "additional_information_3c_item_number",
+    "additional_information_6d_text",
+    "additional_information_3d_text",
+    "additional_information_7a_page_number",
+    "additional_information_7b_part_number",
+    "additional_information_7c_item_number",
+    "additional_information_7d_text",
+    "additional_information_page_number_4a",
+    "additional_information_part_number_4b",
+    "additional_information_item_number_4c",
+    "additional_information_text_4d",
+    "form_barcode_page_6"
+  ],
+  "properties": {
+    "form_barcode": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A PDF417 barcode used for automated data capture and processing of the form information.",
+      "extend_edit:bbox": {
+        "top": 762.001,
+        "left": 191.999,
+        "right": 461.999,
+        "bottom": 780.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "multiLine": true
+      }
+    },
+    "page_barcode": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A PDF417 barcode used for automated data capture and processing of the form information.",
+      "extend_edit:bbox": {
+        "top": 762.001,
+        "left": 191.999,
+        "right": 461.999,
+        "bottom": 780.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 4,
+      "extend_edit:text_edit_options": {
+        "multiLine": true
+      }
+    },
+    "part_1_sex_male": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating the applicant's sex is male, located in Part 1, Item 10.",
+      "extend_edit:bbox": {
+        "top": 364,
+        "left": 98.161,
+        "right": 108.161,
+        "bottom": 374
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "part_1_sex_female": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating the applicant's sex is female, located in Part 1, Item 10.",
+      "extend_edit:bbox": {
+        "top": 364,
+        "left": 146.16,
+        "right": 156.16,
+        "bottom": 374
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "preparer_signature": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The handwritten signature of the person who prepared the application. This field cannot be signed electronically or typewritten.",
+      "extend_edit:bbox": {
+        "top": 521.9970000000001,
+        "left": 60.001,
+        "right": 294.001,
+        "bottom": 539.9970000000001
+      },
+      "extend_edit:field_type": "signature",
+      "extend_edit:page_index": 4,
+      "extend_edit:text_edit_options": {
+        "maxLength": 1
+      }
+    },
+    "form_barcode_page_6": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A PDF417 barcode used for automated processing of the form.",
+      "extend_edit:bbox": {
+        "top": 762.001,
+        "left": 191.999,
+        "right": 461.999,
+        "bottom": 780.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "multiLine": true
+      }
+    },
+    "part_1_date_of_birth": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The applicant's date of birth in mm/dd/yyyy format as requested in Part 1, Item 9.",
+      "extend_edit:bbox": {
+        "top": 336.002,
+        "left": 210.002,
+        "right": 294.001,
+        "bottom": 354.002
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1
+    },
+    "footer_pdf417_barcode": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A system-generated PDF417 2D barcode located at the bottom of the page. This barcode encodes the information entered into the form to facilitate automated data capture by USCIS.",
+      "extend_edit:bbox": {
+        "top": 762.001,
+        "left": 191.999,
+        "right": 461.999,
+        "bottom": 780.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1,
+      "extend_edit:text_edit_options": {
+        "multiLine": true
+      }
+    },
+    "interpreter_signature": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The signature of the interpreter certifying the accuracy of the translation and information provided.",
+      "extend_edit:bbox": {
+        "top": 648,
+        "left": 60.001,
+        "right": 294.001,
+        "bottom": 666
+      },
+      "extend_edit:field_type": "signature",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 1
+      }
+    },
+    "page_1_pdf417_barcode": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A PDF417 barcode used by USCIS for automated data capture and processing of the form information.",
+      "extend_edit:bbox": {
+        "top": 762.001,
+        "left": 191.999,
+        "right": 461.999,
+        "bottom": 780.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0,
+      "extend_edit:text_edit_options": {
+        "multiLine": true
+      }
+    },
+    "interpreter_given_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The first name (given name) of the interpreter as specified in Part 5, Item 1.b.",
+      "extend_edit:bbox": {
+        "top": 546.001,
+        "left": 342,
+        "right": 575.532,
+        "bottom": 564.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 2
+    },
+    "preparer_business_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the preparer's business or organization, if any, as requested in Part 6, item 2.",
+      "extend_edit:bbox": {
+        "top": 239.99800000000005,
+        "left": 342,
+        "right": 576,
+        "bottom": 257.99800000000005
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 34
+      }
+    },
+    "uscis_use_only_receipt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A large text area for the USCIS receipt stamp or information, located in the 'For USCIS Use Only' section.",
+      "extend_edit:bbox": {
+        "top": 108.70992,
+        "left": 79.48853923404256,
+        "right": 364.50615829787233,
+        "bottom": 167.67432
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0
+    },
+    "interpreter_family_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The last name (family name) of the interpreter who assisted the applicant.",
+      "extend_edit:bbox": {
+        "top": 510.004,
+        "left": 342,
+        "right": 575.532,
+        "bottom": 528.004
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 2
+    },
+    "part_1_country_of_birth": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the country where the applicant was born, located in Part 1, Item 11.",
+      "extend_edit:bbox": {
+        "top": 395.997,
+        "left": 60.001,
+        "right": 294.001,
+        "bottom": 413.997
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1
+    },
+    "applicant_signature_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date the applicant signed the form, formatted as mm/dd/yyyy.",
+      "extend_edit:bbox": {
+        "top": 330.001,
+        "left": 491.998,
+        "right": 575.997,
+        "bottom": 348.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 2
+    },
+    "header_internal_tracking": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A text field located at the top of the form, likely used for internal tracking or header information.",
+      "extend_edit:bbox": {
+        "top": 12.070079999999999,
+        "left": 37.82962110638298,
+        "right": 556.2939370212766,
+        "bottom": 30.15144
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 4
+    },
+    "interpreter_business_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the business or organization the interpreter is affiliated with, if applicable, as specified in Part 5, Item 2.",
+      "extend_edit:bbox": {
+        "top": 582.004,
+        "left": 342,
+        "right": 575.532,
+        "bottom": 600.004
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 2,
+      "extend_edit:text_edit_options": {
+        "maxLength": 34
+      }
+    },
+    "attorney_info_g28_attached": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox to be selected if Form G-28 or Form G-28I is attached to the application by an attorney or accredited representative.",
+      "extend_edit:bbox": {
+        "top": 270.999,
+        "left": 144.502,
+        "right": 154.502,
+        "bottom": 280.999
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 0
+    },
+    "document_hand_delivered_by": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A text field to record the name or identifier of the person who hand-delivered the document.",
+      "extend_edit:bbox": {
+        "top": 222.78168,
+        "left": 101.6559605106383,
+        "right": 252.37067438297873,
+        "bottom": 238.71672
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0
+    },
+    "interpreter_signature_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date the interpreter signed the form, formatted as mm/dd/yyyy.",
+      "extend_edit:bbox": {
+        "top": 671.998,
+        "left": 198,
+        "right": 294.004,
+        "bottom": 689.998
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3
+    },
+    "part_1_mailing_address_apt": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating that the mailing address unit type is an apartment.",
+      "extend_edit:bbox": {
+        "top": 424.001,
+        "left": 342,
+        "right": 352,
+        "bottom": 434.001
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 0
+    },
+    "part_1_mailing_address_flr": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating that the mailing address unit type is a floor.",
+      "extend_edit:bbox": {
+        "top": 424.001,
+        "left": 426.002,
+        "right": 436.002,
+        "bottom": 434.001
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 0
+    },
+    "part_1_mailing_address_ste": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating that the mailing address unit type is a suite.",
+      "extend_edit:bbox": {
+        "top": 424.001,
+        "left": 384.001,
+        "right": 394.001,
+        "bottom": 434.001
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 0
+    },
+    "part_3_i131_receipt_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The receipt number of Form I-131 associated with the lost, stolen, or damaged document, located in Part 3, Item 6.",
+      "extend_edit:bbox": {
+        "top": 384.001,
+        "left": 342,
+        "right": 575.923,
+        "bottom": 401.992
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1
+    },
+    "preparer_date_of_signature": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date the preparer signed the form, formatted as mm/dd/yyyy.",
+      "extend_edit:bbox": {
+        "top": 546.001,
+        "left": 210.002,
+        "right": 294.001,
+        "bottom": 564.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 4
+    },
+    "additional_information_text": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A large text area for providing additional information or explanations that did not fit in previous sections of the application, located in Part 7, item 5.d.",
+      "extend_edit:bbox": {
+        "top": 90,
+        "left": 342.003,
+        "right": 576.003,
+        "bottom": 252
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "multiLine": true
+      }
+    },
+    "document_processing_barcode": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A PDF417 barcode used for automated data capture and processing of the form.",
+      "extend_edit:bbox": {
+        "top": 762.001,
+        "left": 191.999,
+        "right": 461.999,
+        "bottom": 780.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 2,
+      "extend_edit:text_edit_options": {
+        "multiLine": true
+      }
+    },
+    "preparer_statement_attorney": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox for Part 6, Item 7.b. indicating the preparer is an attorney or accredited representative.",
+      "extend_edit:bbox": {
+        "top": 187,
+        "left": 61,
+        "right": 71,
+        "bottom": 197
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 4
+    },
+    "uscis_use_only_action_block": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A large text area designated as the 'Action Block' for USCIS internal use.",
+      "extend_edit:bbox": {
+        "top": 109.0188,
+        "left": 368.7338022127659,
+        "right": 574.1387111489362,
+        "bottom": 258.31872
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0
+    },
+    "part_1_family_name_last_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The family name (last name) of the person applying for carrier documentation.",
+      "extend_edit:bbox": {
+        "top": 360,
+        "left": 119.999,
+        "right": 293.998,
+        "bottom": 378
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0
+    },
+    "part_1_mailing_address_state": {
+      "enum": [
+        " ",
+        "AA",
+        "AE",
+        "AK",
+        "AL",
+        "AP",
+        "AR",
+        "AS",
+        "AZ",
+        "CA",
+        "CO",
+        "CT",
+        "DC",
+        "DE",
+        "FL",
+        "FM",
+        "GA",
+        "GU",
+        "HI",
+        "IA",
+        "ID",
+        "IL",
+        "IN",
+        "KS",
+        "KY",
+        "LA",
+        "MA",
+        "MD",
+        "ME",
+        "MH",
+        "MI",
+        "MN",
+        "MO",
+        "MP",
+        "MS",
+        "MT",
+        "NC",
+        "ND",
+        "NE",
+        "NH",
+        "NJ",
+        "NM",
+        "NV",
+        "NY",
+        "OH",
+        "OK",
+        "OR",
+        "PA",
+        "PR",
+        "PW",
+        "RI",
+        "SC",
+        "SD",
+        "TN",
+        "TX",
+        "UT",
+        "VA",
+        "VI",
+        "VT",
+        "WA",
+        "WI",
+        "WV",
+        "WY"
+      ],
+      "description": "A dropdown menu to select the state for the applicant's current mailing address.",
+      "extend_edit:bbox": {
+        "top": 468,
+        "left": 365.998,
+        "right": 401.998,
+        "bottom": 486
+      },
+      "extend:descriptions": [
+        " ",
+        "AA",
+        "AE",
+        "AK",
+        "AL",
+        "AP",
+        "AR",
+        "AS",
+        "AZ",
+        "CA",
+        "CO",
+        "CT",
+        "DC",
+        "DE",
+        "FL",
+        "FM",
+        "GA",
+        "GU",
+        "HI",
+        "IA",
+        "ID",
+        "IL",
+        "IN",
+        "KS",
+        "KY",
+        "LA",
+        "MA",
+        "MD",
+        "ME",
+        "MH",
+        "MI",
+        "MN",
+        "MO",
+        "MP",
+        "MS",
+        "MT",
+        "NC",
+        "ND",
+        "NE",
+        "NH",
+        "NJ",
+        "NM",
+        "NV",
+        "NY",
+        "OH",
+        "OK",
+        "OR",
+        "PA",
+        "PR",
+        "PW",
+        "RI",
+        "SC",
+        "SD",
+        "TN",
+        "TX",
+        "UT",
+        "VA",
+        "VI",
+        "VT",
+        "WA",
+        "WI",
+        "WV",
+        "WY"
+      ],
+      "extend_edit:field_type": "dropdown",
+      "extend_edit:page_index": 0
+    },
+    "document_issued_boarding_foil": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox to indicate that a Boarding Foil was the document issued.",
+      "extend_edit:bbox": {
+        "top": 191.52936,
+        "left": 185.4488129361702,
+        "right": 192.3682151489362,
+        "bottom": 198.53064
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 0
+    },
+    "part_1_physical_address_state": {
+      "enum": [
+        " ",
+        "AA",
+        "AE",
+        "AK",
+        "AL",
+        "AP",
+        "AR",
+        "AS",
+        "AZ",
+        "CA",
+        "CO",
+        "CT",
+        "DC",
+        "DE",
+        "FL",
+        "FM",
+        "GA",
+        "GU",
+        "HI",
+        "IA",
+        "ID",
+        "IL",
+        "IN",
+        "KS",
+        "KY",
+        "LA",
+        "MA",
+        "MD",
+        "ME",
+        "MH",
+        "MI",
+        "MN",
+        "MO",
+        "MP",
+        "MS",
+        "MT",
+        "NC",
+        "ND",
+        "NE",
+        "NH",
+        "NJ",
+        "NM",
+        "NV",
+        "NY",
+        "OH",
+        "OK",
+        "OR",
+        "PA",
+        "PR",
+        "PW",
+        "RI",
+        "SC",
+        "SD",
+        "TN",
+        "TX",
+        "UT",
+        "VA",
+        "VI",
+        "VT",
+        "WA",
+        "WI",
+        "WV",
+        "WY"
+      ],
+      "description": "The two-letter abbreviation for the state of the applicant's U.S. physical address.",
+      "extend_edit:bbox": {
+        "top": 173.99900000000002,
+        "left": 84.002,
+        "right": 120.002,
+        "bottom": 191.99900000000002
+      },
+      "extend:descriptions": [
+        " ",
+        "AA",
+        "AE",
+        "AK",
+        "AL",
+        "AP",
+        "AR",
+        "AS",
+        "AZ",
+        "CA",
+        "CO",
+        "CT",
+        "DC",
+        "DE",
+        "FL",
+        "FM",
+        "GA",
+        "GU",
+        "HI",
+        "IA",
+        "ID",
+        "IL",
+        "IN",
+        "KS",
+        "KY",
+        "LA",
+        "MA",
+        "MD",
+        "ME",
+        "MH",
+        "MI",
+        "MN",
+        "MO",
+        "MP",
+        "MS",
+        "MT",
+        "NC",
+        "ND",
+        "NE",
+        "NH",
+        "NJ",
+        "NM",
+        "NV",
+        "NY",
+        "OH",
+        "OK",
+        "OR",
+        "PA",
+        "PR",
+        "PW",
+        "RI",
+        "SC",
+        "SD",
+        "TN",
+        "TX",
+        "UT",
+        "VA",
+        "VI",
+        "VT",
+        "WA",
+        "WI",
+        "WV",
+        "WY"
+      ],
+      "extend_edit:field_type": "dropdown",
+      "extend_edit:page_index": 1
+    },
+    "part_1_social_security_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The applicant's U.S. Social Security Number, if they have one, as requested in Part 1, Item 8.",
+      "extend_edit:bbox": {
+        "top": 312.001,
+        "left": 164.948,
+        "right": 293.958,
+        "bottom": 330.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1,
+      "extend_edit:text_edit_options": {
+        "combing": true,
+        "maxLength": 9
+      }
+    },
+    "preparer_full_name_given_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The given name (first name) of the person who prepared the application, located in Part 6.",
+      "extend_edit:bbox": {
+        "top": 204.00099999999998,
+        "left": 342,
+        "right": 576,
+        "bottom": 222.00099999999998
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3
+    },
+    "processing_info_revocation_no": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox indicating 'No' that a Form I-512/I-512L or Form I-766 was not revoked.",
+      "extend_edit:bbox": {
+        "top": 118.00099999999998,
+        "left": 260.161,
+        "right": 270.161,
+        "bottom": 128.00099999999998
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 2
+    },
+    "additional_information_3d_text": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A large text area for providing additional information related to the item specified in section 3.a. through 3.c. of Part 7.",
+      "extend_edit:bbox": {
+        "top": 317.999,
+        "left": 60.004,
+        "right": 294.004,
+        "bottom": 497.999
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "multiLine": true
+      }
+    },
+    "additional_information_6d_text": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A large text area in Part 7, section 6.d. for providing additional information related to the specified page, part, and item numbers.",
+      "extend_edit:bbox": {
+        "top": 299.999,
+        "left": 342.003,
+        "right": 576.003,
+        "bottom": 461.999
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "multiLine": true
+      }
+    },
+    "additional_information_7d_text": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A large text area for providing additional information related to the item specified in section 7.a. through 7.c. of Part 7.",
+      "extend_edit:bbox": {
+        "top": 510.001,
+        "left": 342.003,
+        "right": 576.003,
+        "bottom": 672.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "multiLine": true
+      }
+    },
+    "additional_information_text_4d": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A text area for providing extra space for any additional information within the application that did not fit in previous sections.",
+      "extend_edit:bbox": {
+        "top": 545.998,
+        "left": 60.004,
+        "right": 294.004,
+        "bottom": 725.998
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "multiLine": true
+      }
+    },
+    "attorney_info_state_bar_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The state bar number of the attorney or accredited representative, if applicable.",
+      "extend_edit:bbox": {
+        "top": 294.001,
+        "left": 252,
+        "right": 384.001,
+        "bottom": 312.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0
+    },
+    "preparer_full_name_family_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The family name (last name) of the person who prepared the application, located in Part 6.",
+      "extend_edit:bbox": {
+        "top": 168.00099999999998,
+        "left": 342,
+        "right": 575.997,
+        "bottom": 186.00099999999998
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3
+    },
+    "preparer_mailing_address_state": {
+      "enum": [
+        " ",
+        "AA",
+        "AE",
+        "AK",
+        "AL",
+        "AP",
+        "AR",
+        "AS",
+        "AZ",
+        "CA",
+        "CO",
+        "CT",
+        "DC",
+        "DE",
+        "FL",
+        "FM",
+        "GA",
+        "GU",
+        "HI",
+        "IA",
+        "ID",
+        "IL",
+        "IN",
+        "KS",
+        "KY",
+        "LA",
+        "MA",
+        "MD",
+        "ME",
+        "MH",
+        "MI",
+        "MN",
+        "MO",
+        "MP",
+        "MS",
+        "MT",
+        "NC",
+        "ND",
+        "NE",
+        "NH",
+        "NJ",
+        "NM",
+        "NV",
+        "NY",
+        "OH",
+        "OK",
+        "OR",
+        "PA",
+        "PR",
+        "PW",
+        "RI",
+        "SC",
+        "SD",
+        "TN",
+        "TX",
+        "UT",
+        "VA",
+        "VI",
+        "VT",
+        "WA",
+        "WI",
+        "WV",
+        "WY"
+      ],
+      "description": "The state of the preparer's mailing address, selected from a dropdown menu in Part 6.",
+      "extend_edit:bbox": {
+        "top": 366.004,
+        "left": 366.001,
+        "right": 402.001,
+        "bottom": 384.004
+      },
+      "extend:descriptions": [
+        " ",
+        "AA",
+        "AE",
+        "AK",
+        "AL",
+        "AP",
+        "AR",
+        "AS",
+        "AZ",
+        "CA",
+        "CO",
+        "CT",
+        "DC",
+        "DE",
+        "FL",
+        "FM",
+        "GA",
+        "GU",
+        "HI",
+        "IA",
+        "ID",
+        "IL",
+        "IN",
+        "KS",
+        "KY",
+        "LA",
+        "MA",
+        "MD",
+        "ME",
+        "MH",
+        "MI",
+        "MN",
+        "MO",
+        "MP",
+        "MS",
+        "MT",
+        "NC",
+        "ND",
+        "NE",
+        "NH",
+        "NJ",
+        "NM",
+        "NV",
+        "NY",
+        "OH",
+        "OK",
+        "OR",
+        "PA",
+        "PR",
+        "PW",
+        "RI",
+        "SC",
+        "SD",
+        "TN",
+        "TX",
+        "UT",
+        "VA",
+        "VI",
+        "VT",
+        "WA",
+        "WI",
+        "WV",
+        "WY"
+      ],
+      "extend_edit:field_type": "dropdown",
+      "extend_edit:page_index": 3
+    },
+    "processing_info_revocation_yes": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox indicating 'Yes' that a Form I-512/I-512L or Form I-766 was revoked.",
+      "extend_edit:bbox": {
+        "top": 118.00099999999998,
+        "left": 224.161,
+        "right": 234.161,
+        "bottom": 128.00099999999998
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 2
+    },
+    "preparer_representation_extends": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox for Part 6, Item 7.b. indicating that the attorney's representation extends beyond the preparation of this form.",
+      "extend_edit:bbox": {
+        "top": 210.99800000000005,
+        "left": 79,
+        "right": 89,
+        "bottom": 220.99800000000005
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 4
+    },
+    "preparer_statement_not_attorney": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox for Part 6, Item 7.a. indicating the preparer is not an attorney or accredited representative but prepared the application with consent.",
+      "extend_edit:bbox": {
+        "top": 144.99900000000002,
+        "left": 61,
+        "right": 71,
+        "bottom": 154.99900000000002
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 4
+    },
+    "part_1_physical_address_zip_code": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The ZIP code for the applicant's U.S. physical address.",
+      "extend_edit:bbox": {
+        "top": 173.99900000000002,
+        "left": 192.002,
+        "right": 294.001,
+        "bottom": 191.99900000000002
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1,
+      "extend_edit:text_edit_options": {
+        "maxLength": 5
+      }
+    },
+    "part_3_date_expiration_i512_i766": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The expiration date of the applicant's existing Form I-512, I-512L, or Form I-766, if applicable, in mm/dd/yyyy format as requested in Part 3, Item 5.",
+      "extend_edit:bbox": {
+        "top": 324,
+        "left": 491.998,
+        "right": 575.997,
+        "bottom": 342
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1
+    },
+    "preparer_mailing_address_country": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The country for the preparer's mailing address, as requested in Part 6, Line 3.h.",
+      "extend_edit:bbox": {
+        "top": 450,
+        "left": 342,
+        "right": 576,
+        "bottom": 468
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3
+    },
+    "additional_information_given_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The first name of the applicant, pre-populated from Part 1, used for identification on the additional information page.",
+      "extend_edit:bbox": {
+        "top": 204.00099999999998,
+        "left": 120.005,
+        "right": 294.007,
+        "bottom": 222.00099999999998
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5
+    },
+    "applicant_statement_preparer_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the preparer mentioned in Part 6 who prepared the application at the applicant's request.",
+      "extend_edit:bbox": {
+        "top": 528.174,
+        "left": 78.001,
+        "right": 287.932,
+        "bottom": 546.165
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 2
+    },
+    "interpreter_mailing_address_state": {
+      "enum": [
+        " ",
+        "AA",
+        "AE",
+        "AK",
+        "AL",
+        "AP",
+        "AR",
+        "AS",
+        "AZ",
+        "CA",
+        "CO",
+        "CT",
+        "DC",
+        "DE",
+        "FL",
+        "FM",
+        "GA",
+        "GU",
+        "HI",
+        "IA",
+        "ID",
+        "IL",
+        "IN",
+        "KS",
+        "KY",
+        "LA",
+        "MA",
+        "MD",
+        "ME",
+        "MH",
+        "MI",
+        "MN",
+        "MO",
+        "MP",
+        "MS",
+        "MT",
+        "NC",
+        "ND",
+        "NE",
+        "NH",
+        "NJ",
+        "NM",
+        "NV",
+        "NY",
+        "OH",
+        "OK",
+        "OR",
+        "PA",
+        "PR",
+        "PW",
+        "RI",
+        "SC",
+        "SD",
+        "TN",
+        "TX",
+        "UT",
+        "VA",
+        "VI",
+        "VT",
+        "WA",
+        "WI",
+        "WV",
+        "WY"
+      ],
+      "description": "The state of the interpreter's mailing address. Select the appropriate state from the dropdown menu.",
+      "extend_edit:bbox": {
+        "top": 192.00199999999995,
+        "left": 83.999,
+        "right": 119.999,
+        "bottom": 210.00199999999995
+      },
+      "extend:descriptions": [
+        " ",
+        "AA",
+        "AE",
+        "AK",
+        "AL",
+        "AP",
+        "AR",
+        "AS",
+        "AZ",
+        "CA",
+        "CO",
+        "CT",
+        "DC",
+        "DE",
+        "FL",
+        "FM",
+        "GA",
+        "GU",
+        "HI",
+        "IA",
+        "ID",
+        "IL",
+        "IN",
+        "KS",
+        "KY",
+        "LA",
+        "MA",
+        "MD",
+        "ME",
+        "MH",
+        "MI",
+        "MN",
+        "MO",
+        "MP",
+        "MS",
+        "MT",
+        "NC",
+        "ND",
+        "NE",
+        "NH",
+        "NJ",
+        "NM",
+        "NV",
+        "NY",
+        "OH",
+        "OK",
+        "OR",
+        "PA",
+        "PR",
+        "PW",
+        "RI",
+        "SC",
+        "SD",
+        "TN",
+        "TX",
+        "UT",
+        "VA",
+        "VI",
+        "VT",
+        "WA",
+        "WI",
+        "WV",
+        "WY"
+      ],
+      "extend_edit:field_type": "dropdown",
+      "extend_edit:page_index": 3
+    },
+    "preparer_mailing_address_province": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The province of the preparer's mailing address for international addresses in Part 6.",
+      "extend_edit:bbox": {
+        "top": 390.005,
+        "left": 401.837,
+        "right": 575.836,
+        "bottom": 408.005
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 20
+      }
+    },
+    "preparer_mailing_address_zip_code": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The ZIP code of the preparer's mailing address in Part 6.",
+      "extend_edit:bbox": {
+        "top": 366.004,
+        "left": 474.001,
+        "right": 576,
+        "bottom": 384.004
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 5
+      }
+    },
+    "additional_information_family_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The applicant's family name (last name) as it appears in Part 1 of the application, located at the top of the Additional Information section in Part 7, item 1.a.",
+      "extend_edit:bbox": {
+        "top": 180,
+        "left": 120.005,
+        "right": 294.007,
+        "bottom": 198
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5
+    },
+    "additional_information_item_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The item number of the form to which the additional information refers, located in Part 7, item 5.c.",
+      "extend_edit:bbox": {
+        "top": 65.99900000000002,
+        "left": 516.002,
+        "right": 576.003,
+        "bottom": 83.99900000000002
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "maxLength": 6
+      }
+    },
+    "additional_information_middle_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The middle name of the applicant, pre-populated from Part 1, used for identification on the additional information page.",
+      "extend_edit:bbox": {
+        "top": 227.99900000000002,
+        "left": 120.005,
+        "right": 294.004,
+        "bottom": 245.99900000000002
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5
+    },
+    "additional_information_page_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The page number of the form to which the additional information refers, located in Part 7, item 5.a.",
+      "extend_edit:bbox": {
+        "top": 65.99900000000002,
+        "left": 342.003,
+        "right": 402.004,
+        "bottom": 83.99900000000002
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "maxLength": 2
+      }
+    },
+    "additional_information_part_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The part number of the form to which the additional information refers, located in Part 7, item 5.b.",
+      "extend_edit:bbox": {
+        "top": 65.99900000000002,
+        "left": 432.003,
+        "right": 486.003,
+        "bottom": 83.99900000000002
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "maxLength": 6
+      }
+    },
+    "applicant_daytime_telephone_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The daytime telephone number for the applicant as requested in Part 4, Item 3.",
+      "extend_edit:bbox": {
+        "top": 617.984,
+        "left": 60.001,
+        "right": 293.922,
+        "bottom": 635.975
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 2,
+      "extend_edit:text_edit_options": {
+        "maxLength": 10
+      }
+    },
+    "part_1_uscis_online_account_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The applicant's USCIS Online Account Number, if they have one, as requested in Part 1, Item 7.",
+      "extend_edit:bbox": {
+        "top": 276.001,
+        "left": 119.999,
+        "right": 294.009,
+        "bottom": 294.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1,
+      "extend_edit:text_edit_options": {
+        "combing": true,
+        "maxLength": 12
+      }
+    },
+    "processing_info_date_of_revocation": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date the document was revoked, formatted as mm/dd/yyyy.",
+      "extend_edit:bbox": {
+        "top": 191.99900000000002,
+        "left": 210.002,
+        "right": 294.001,
+        "bottom": 209.99900000000002
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 2
+    },
+    "interpreter_mailing_address_country": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The country of the interpreter's mailing address, as requested in Part 5, item 3.h.",
+      "extend_edit:bbox": {
+        "top": 276.001,
+        "left": 60.001,
+        "right": 294.001,
+        "bottom": 294.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3
+    },
+    "interpreter_mobile_telephone_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The mobile telephone number for the interpreter, if any, located in Part 5, Item 5.",
+      "extend_edit:bbox": {
+        "top": 378,
+        "left": 60.001,
+        "right": 293.998,
+        "bottom": 396
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 15
+      }
+    },
+    "part_1_mailing_address_city_or_town": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A text field for entering the city or town of the applicant's current mailing address.",
+      "extend_edit:bbox": {
+        "top": 443.999,
+        "left": 401.998,
+        "right": 575.997,
+        "bottom": 461.999
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0,
+      "extend_edit:text_edit_options": {
+        "maxLength": 20
+      }
+    },
+    "physical_address_apt_ste_flr_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Text field for Part 1, Item 5.b. to enter the specific apartment, suite, or floor number if applicable.",
+      "extend_edit:bbox": {
+        "top": 126,
+        "left": 186.001,
+        "right": 294.001,
+        "bottom": 144
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1,
+      "extend_edit:text_edit_options": {
+        "maxLength": 6
+      }
+    },
+    "preparer_contact_info_daytime_phone": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The daytime telephone number for the preparer, as requested in Part 6, Line 4.",
+      "extend_edit:bbox": {
+        "top": 515.999,
+        "left": 342,
+        "right": 576,
+        "bottom": 533.999
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 15
+      }
+    },
+    "preparer_contact_info_email_address": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The email address for the person preparing the application, if any.",
+      "extend_edit:bbox": {
+        "top": 587.996,
+        "left": 342,
+        "right": 576,
+        "bottom": 605.996
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3
+    },
+    "preparer_contact_info_mobile_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The mobile telephone number for the person preparing the application, if any. Please include the 3-digit area code.",
+      "extend_edit:bbox": {
+        "top": 551.999,
+        "left": 342,
+        "right": 576,
+        "bottom": 569.999
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 15
+      }
+    },
+    "reason_for_application_card_damaged": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox for Part 2, Item 1.c. indicating that the existing Permanent Resident Card has been damaged.",
+      "extend_edit:bbox": {
+        "top": 571,
+        "left": 60.999,
+        "right": 70.999,
+        "bottom": 581
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "reason_for_application_card_expired": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox for Part 2, Item 1.d. indicating that the existing Permanent Resident Card has already expired.",
+      "extend_edit:bbox": {
+        "top": 600.999,
+        "left": 60.999,
+        "right": 70.999,
+        "bottom": 610.999
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "reason_for_application_i512_damaged": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox for Part 2, Item 1.f. indicating that the applicant's existing Form I-512/I-512L Advance Parole Document has been damaged.",
+      "extend_edit:bbox": {
+        "top": 661,
+        "left": 60.999,
+        "right": 70.999,
+        "bottom": 671
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "reason_for_application_other_reason": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox for Part 2, Item 1.i. indicating an 'Other' reason for the application, which requires an explanation in the following field.",
+      "extend_edit:bbox": {
+        "top": 84.99699999999996,
+        "left": 342.998,
+        "right": 352.998,
+        "bottom": 94.99699999999996
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "applicant_contact_info_email_address": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The email address for the applicant, if any, as requested in Part 4, Item Number 5.",
+      "extend_edit:bbox": {
+        "top": 689.95,
+        "left": 60.08,
+        "right": 294.003,
+        "bottom": 707.941
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 2
+    },
+    "applicant_statement_interpreter_used": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox indicating that an interpreter named in Part 5 read every question and instruction to the applicant in a specified language.",
+      "extend_edit:bbox": {
+        "top": 432.747,
+        "left": 61,
+        "right": 71,
+        "bottom": 442.747
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 2
+    },
+    "information_about_you_name_change_no": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox indicating 'No' if the applicant has not changed their name since receiving their last immigration document as requested in Part 1, Item 2.",
+      "extend_edit:bbox": {
+        "top": 483.999,
+        "left": 263.999,
+        "right": 273.999,
+        "bottom": 493.999
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 0
+    },
+    "interpreter_mailing_address_province": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The province of the interpreter's mailing address, as requested in Part 5, item 3.f.",
+      "extend_edit:bbox": {
+        "top": 216.00300000000004,
+        "left": 120.175,
+        "right": 294.174,
+        "bottom": 234.00300000000004
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 20
+      }
+    },
+    "interpreter_mailing_address_zip_code": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The ZIP code of the interpreter's mailing address as part of the contact information in Part 5.",
+      "extend_edit:bbox": {
+        "top": 192.00199999999995,
+        "left": 191.999,
+        "right": 293.998,
+        "bottom": 210.00199999999995
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 5
+      }
+    },
+    "part_1_physical_address_city_or_town": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A text field for entering the city or town of the applicant's physical address.",
+      "extend_edit:bbox": {
+        "top": 150.00099999999998,
+        "left": 126,
+        "right": 294.001,
+        "bottom": 168.00099999999998
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1,
+      "extend_edit:text_edit_options": {
+        "maxLength": 20
+      }
+    },
+    "preparer_mailing_address_postal_code": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The postal code for the preparer's mailing address, as requested in Part 6, Line 3.g.",
+      "extend_edit:bbox": {
+        "top": 414.006,
+        "left": 402.001,
+        "right": 576,
+        "bottom": 432.006
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 9
+      }
+    },
+    "preparer_mailing_address_unit_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The specific apartment, suite, or floor number for the preparer's mailing address.",
+      "extend_edit:bbox": {
+        "top": 318.005,
+        "left": 468,
+        "right": 576,
+        "bottom": 336.005
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 6
+      }
+    },
+    "additional_information_3a_page_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The page number in Part 7, section 3.a. to which the additional information refers.",
+      "extend_edit:bbox": {
+        "top": 294.009,
+        "left": 60.009,
+        "right": 120.01,
+        "bottom": 312.009
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "maxLength": 2
+      }
+    },
+    "additional_information_3b_part_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The part number in Part 7, section 3.b. to which the additional information refers.",
+      "extend_edit:bbox": {
+        "top": 294.001,
+        "left": 150.004,
+        "right": 204.004,
+        "bottom": 312.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "maxLength": 6
+      }
+    },
+    "additional_information_3c_item_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The item number in Part 7, section 3.c. to which the additional information refers.",
+      "extend_edit:bbox": {
+        "top": 294.001,
+        "left": 233.991,
+        "right": 293.992,
+        "bottom": 312.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "maxLength": 6
+      }
+    },
+    "additional_information_6a_page_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The page number of the form to which the additional information in item 6.d. refers.",
+      "extend_edit:bbox": {
+        "top": 275.99800000000005,
+        "left": 342.003,
+        "right": 402.004,
+        "bottom": 293.998
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "maxLength": 2
+      }
+    },
+    "additional_information_6b_part_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The part number of the form to which the additional information in item 6.d. refers.",
+      "extend_edit:bbox": {
+        "top": 275.99800000000005,
+        "left": 432.003,
+        "right": 486.003,
+        "bottom": 293.998
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "maxLength": 6
+      }
+    },
+    "additional_information_6c_item_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The item number in Part 7, section 6.c. to which the additional information refers.",
+      "extend_edit:bbox": {
+        "top": 275.99800000000005,
+        "left": 516.002,
+        "right": 576.003,
+        "bottom": 293.998
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "maxLength": 6
+      }
+    },
+    "additional_information_7a_page_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The page number of the application to which the additional information in section 7.d. refers.",
+      "extend_edit:bbox": {
+        "top": 486,
+        "left": 342.003,
+        "right": 402.004,
+        "bottom": 504
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "maxLength": 2
+      }
+    },
+    "additional_information_7b_part_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The part number of the application to which the additional information in section 7.d. refers.",
+      "extend_edit:bbox": {
+        "top": 486,
+        "left": 432.003,
+        "right": 486.003,
+        "bottom": 504
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "maxLength": 6
+      }
+    },
+    "additional_information_7c_item_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The item number of the application to which the additional information in section 7.d. refers.",
+      "extend_edit:bbox": {
+        "top": 486,
+        "left": 516.002,
+        "right": 576.003,
+        "bottom": 504
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "maxLength": 6
+      }
+    },
+    "additional_information_item_number_4c": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The item number of the form to which the additional information in section 4.d. refers.",
+      "extend_edit:bbox": {
+        "top": 521.9970000000001,
+        "left": 234.006,
+        "right": 294.007,
+        "bottom": 539.9970000000001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "maxLength": 6
+      }
+    },
+    "additional_information_page_number_4a": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The page number of the form to which the additional information in section 4.d. refers.",
+      "extend_edit:bbox": {
+        "top": 522.595,
+        "left": 60.593,
+        "right": 120.594,
+        "bottom": 540.595
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "maxLength": 2
+      }
+    },
+    "additional_information_part_number_4b": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The part number of the form to which the additional information in section 4.d. refers.",
+      "extend_edit:bbox": {
+        "top": 521.9970000000001,
+        "left": 150.004,
+        "right": 204.004,
+        "bottom": 539.9970000000001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "maxLength": 6
+      }
+    },
+    "document_issued_transportation_letter": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox to indicate that a Transportation Letter was the document issued.",
+      "extend_edit:bbox": {
+        "top": 191.67191999999997,
+        "left": 83.63701378723405,
+        "right": 90.52474825531918,
+        "bottom": 198.51479999999995
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 0
+    },
+    "information_about_you_name_change_yes": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox indicating 'Yes' if the applicant has changed their name since receiving their last immigration document (I-551, I-512, I-512L, or I-766) as requested in Part 1, Item 2.",
+      "extend_edit:bbox": {
+        "top": 483.999,
+        "left": 227.999,
+        "right": 237.999,
+        "bottom": 493.999
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 0
+    },
+    "part_1_physical_address_unit_type_apt": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating that the physical address unit type is an apartment (Apt.).",
+      "extend_edit:bbox": {
+        "top": 130,
+        "left": 60.001,
+        "right": 70.001,
+        "bottom": 140
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "part_1_physical_address_unit_type_flr": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating that the physical address unit type is a floor (Flr.).",
+      "extend_edit:bbox": {
+        "top": 130,
+        "left": 144.003,
+        "right": 154.003,
+        "bottom": 140
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "part_1_physical_address_unit_type_ste": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating that the physical address unit type is a suite (Ste.).",
+      "extend_edit:bbox": {
+        "top": 130,
+        "left": 102.002,
+        "right": 112.002,
+        "bottom": 140
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "part_3_date_expiration_reentry_permit": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The expiration date of the applicant's existing Reentry Permit, if applicable, in mm/dd/yyyy format as requested in Part 3, Item 4.",
+      "extend_edit:bbox": {
+        "top": 275.99800000000005,
+        "left": 491.998,
+        "right": 575.997,
+        "bottom": 293.998
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1
+    },
+    "preparer_mailing_address_apt_checkbox": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating that the preparer's mailing address unit type is an apartment (Apt.).",
+      "extend_edit:bbox": {
+        "top": 322.005,
+        "left": 342,
+        "right": 352,
+        "bottom": 332.005
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 3
+    },
+    "preparer_mailing_address_city_or_town": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The city or town of the preparer's mailing address as part of the contact information in Part 6.",
+      "extend_edit:bbox": {
+        "top": 342.006,
+        "left": 407.999,
+        "right": 576,
+        "bottom": 360.006
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 20
+      }
+    },
+    "preparer_mailing_address_flr_checkbox": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating that the preparer's mailing address unit type is a floor (Flr.).",
+      "extend_edit:bbox": {
+        "top": 322.005,
+        "left": 426.002,
+        "right": 436.002,
+        "bottom": 332.005
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 3
+    },
+    "preparer_mailing_address_ste_checkbox": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating that the preparer's mailing address unit type is a suite (Ste.).",
+      "extend_edit:bbox": {
+        "top": 322.005,
+        "left": 384.001,
+        "right": 394.001,
+        "bottom": 332.005
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 3
+    },
+    "processing_info_reason_for_revocation": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A text field to provide the reason why the document was revoked.",
+      "extend_edit:bbox": {
+        "top": 228.60000000000002,
+        "left": 60.593,
+        "right": 294.593,
+        "bottom": 246.60000000000002
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 2
+    },
+    "interpreter_contact_info_daytime_phone": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The daytime telephone number for the interpreter, including the 3-digit area code.",
+      "extend_edit:bbox": {
+        "top": 342,
+        "left": 60.001,
+        "right": 293.998,
+        "bottom": 360
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 15
+      }
+    },
+    "interpreter_contact_info_email_address": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The email address of the interpreter, as requested in Part 5, Line 6.",
+      "extend_edit:bbox": {
+        "top": 414,
+        "left": 60.004,
+        "right": 294.004,
+        "bottom": 432
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3
+    },
+    "part_1_current_mailing_address_country": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The country of the applicant's current mailing address as specified in Part 1, Item 3.i.",
+      "extend_edit:bbox": {
+        "top": 551.999,
+        "left": 342,
+        "right": 576,
+        "bottom": 569.999
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0
+    },
+    "applicant_signature_applicant_signature": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The signature of the applicant certifying the information provided in the application.",
+      "extend_edit:bbox": {
+        "top": 306,
+        "left": 342,
+        "right": 576,
+        "bottom": 324
+      },
+      "extend_edit:field_type": "signature",
+      "extend_edit:page_index": 2
+    },
+    "applicant_statement_english_proficiency": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox indicating the applicant can read and understand English and has read and understood every question and instruction on the application.",
+      "extend_edit:bbox": {
+        "top": 390.746,
+        "left": 61,
+        "right": 71,
+        "bottom": 400.746
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 2
+    },
+    "interpreter_mailing_address_postal_code": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The postal code of the interpreter's mailing address, as requested in Part 5, item 3.g.",
+      "extend_edit:bbox": {
+        "top": 240.00400000000002,
+        "left": 120.175,
+        "right": 294.174,
+        "bottom": 258.004
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 9
+      }
+    },
+    "part_1_information_about_you_given_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The applicant's first name as requested in Part 1, Item 1.b. under Information About You.",
+      "extend_edit:bbox": {
+        "top": 384.001,
+        "left": 119.999,
+        "right": 293.998,
+        "bottom": 402.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0
+    },
+    "part_3_processing_info_date_departed_us": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A text field for the date the applicant departed the United States, formatted as mm/dd/yyyy.",
+      "extend_edit:bbox": {
+        "top": 167.99800000000005,
+        "left": 491.998,
+        "right": 575.997,
+        "bottom": 185.99800000000005
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1
+    },
+    "physical_address_street_number_and_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Text field for Part 1, Item 5.a. to enter the street number and name of the applicant's U.S. physical address.",
+      "extend_edit:bbox": {
+        "top": 101.99900000000002,
+        "left": 126,
+        "right": 294.001,
+        "bottom": 119.99900000000002
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1,
+      "extend_edit:text_edit_options": {
+        "maxLength": 34
+      }
+    },
+    "preparer_representation_does_not_extend": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox for Part 6, Item 7.b. indicating that the attorney's representation does not extend beyond the preparation of this form.",
+      "extend_edit:bbox": {
+        "top": 210.99800000000005,
+        "left": 133,
+        "right": 143,
+        "bottom": 220.99800000000005
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 4
+    },
+    "applicant_statement_interpreter_language": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the language in which the interpreter read the application questions and instructions to the applicant.",
+      "extend_edit:bbox": {
+        "top": 467.952,
+        "left": 78.001,
+        "right": 287.932,
+        "bottom": 485.943
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 2
+    },
+    "interpreter_mailing_address_city_or_town": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The city or town of the interpreter's mailing address as part of the contact information in Part 5.",
+      "extend_edit:bbox": {
+        "top": 168.00400000000002,
+        "left": 126,
+        "right": 294.001,
+        "bottom": 186.00400000000002
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 20
+      }
+    },
+    "part_1_information_about_you_middle_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The applicant's middle name as requested in Part 1, Item 1.c. under Information About You.",
+      "extend_edit:bbox": {
+        "top": 407.999,
+        "left": 119.999,
+        "right": 293.998,
+        "bottom": 425.999
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0
+    },
+    "reason_for_application_other_explanation": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Text field for Part 2, Item 1.i. to provide an explanation if the 'Other' reason checkbox was selected.",
+      "extend_edit:bbox": {
+        "top": 95.99800000000005,
+        "left": 360,
+        "right": 576,
+        "bottom": 113.99800000000005
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1
+    },
+    "attorney_info_uscis_online_account_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The USCIS Online Account Number for the attorney or accredited representative, if they have one.",
+      "extend_edit:bbox": {
+        "top": 294.001,
+        "left": 396,
+        "right": 570.01,
+        "bottom": 312.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0,
+      "extend_edit:text_edit_options": {
+        "combing": true,
+        "maxLength": 12
+      }
+    },
+    "interpreter_certification_language_fluent": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The language in which the interpreter is fluent, which must be the same language specified in Part 4, Item Number 1.b.",
+      "extend_edit:bbox": {
+        "top": 486,
+        "left": 144,
+        "right": 288,
+        "bottom": 504
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3
+    },
+    "interpreter_mailing_address_unit_type_apt": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating that the interpreter's mailing address unit type is an apartment.",
+      "extend_edit:bbox": {
+        "top": 148,
+        "left": 60.001,
+        "right": 70.001,
+        "bottom": 158
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 3
+    },
+    "interpreter_mailing_address_unit_type_flr": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating that the interpreter's mailing address unit type is a floor.",
+      "extend_edit:bbox": {
+        "top": 148.00300000000004,
+        "left": 144.003,
+        "right": 154.003,
+        "bottom": 158.00300000000004
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 3
+    },
+    "interpreter_mailing_address_unit_type_ste": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating that the interpreter's mailing address unit type is a suite.",
+      "extend_edit:bbox": {
+        "top": 148.59799999999996,
+        "left": 102.591,
+        "right": 112.591,
+        "bottom": 158.59799999999996
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 3
+    },
+    "part_1_mailing_address_same_as_physical_no": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating 'No' if the applicant's current mailing address is not the same as their U.S. physical address in Part 1, Item 4. If selected, the applicant must provide their U.S. physical address in Items 5.a. through 5.e.",
+      "extend_edit:bbox": {
+        "top": 591.999,
+        "left": 542.16,
+        "right": 552.16,
+        "bottom": 601.999
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 0
+    },
+    "processing_info_carrier_document_issued_no": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox for Part 3, Item 9.a. selecting 'No' to indicate the applicant has never been issued a Carrier Document.",
+      "extend_edit:bbox": {
+        "top": 604.001,
+        "left": 542.16,
+        "right": 552.16,
+        "bottom": 614.001
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "processing_information_abandoned_status_no": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating 'No' to whether the applicant has ever filed Form I-407 or been judged to have abandoned their lawful permanent resident status.",
+      "extend_edit:bbox": {
+        "top": 538.002,
+        "left": 542.16,
+        "right": 552.16,
+        "bottom": 548.002
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "part_1_mailing_address_same_as_physical_yes": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating 'Yes' if the applicant's current mailing address is the same as their U.S. physical address in Part 1, Item 4.",
+      "extend_edit:bbox": {
+        "top": 591.999,
+        "left": 504,
+        "right": 514,
+        "bottom": 601.999
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 0
+    },
+    "part_1_other_info_alien_registration_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The applicant's Alien Registration Number (A-Number), if any.",
+      "extend_edit:bbox": {
+        "top": 240.00099999999998,
+        "left": 164.392,
+        "right": 293.402,
+        "bottom": 258.08000000000004
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1,
+      "extend_edit:text_edit_options": {
+        "combing": true,
+        "maxLength": 9
+      }
+    },
+    "preparer_mailing_address_street_number_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The street number and name of the preparer's mailing address, as requested in Part 6, item 3.a.",
+      "extend_edit:bbox": {
+        "top": 294.004,
+        "left": 407.999,
+        "right": 576,
+        "bottom": 312.004
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 25
+      }
+    },
+    "processing_info_carrier_document_issued_yes": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox for Part 3, Item 9.a. selecting 'Yes' to indicate the applicant has ever been issued a Carrier Document.",
+      "extend_edit:bbox": {
+        "top": 604.001,
+        "left": 506.16,
+        "right": 516.16,
+        "bottom": 614.001
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "processing_information_abandoned_status_yes": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating 'Yes' to whether the applicant has ever filed Form I-407 or been judged to have abandoned their lawful permanent resident status. If checked, details must be provided in Part 7.",
+      "extend_edit:bbox": {
+        "top": 538.002,
+        "left": 506.16,
+        "right": 516.16,
+        "bottom": 548.002
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "uscis_use_only_document_hand_delivered_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date the document was hand-delivered, formatted as mm/dd/yyyy. This field is located in the 'For USCIS Use Only' section.",
+      "extend_edit:bbox": {
+        "top": 223.32816,
+        "left": 281.5445841702128,
+        "right": 357.9113504680851,
+        "bottom": 238.9464
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0
+    },
+    "part_1_country_of_citizenship_or_nationality": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the country where the applicant holds citizenship or nationality, located in Part 1, Item 12.",
+      "extend_edit:bbox": {
+        "top": 431.997,
+        "left": 60.001,
+        "right": 294.001,
+        "bottom": 449.997
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1
+    },
+    "processing_info_carrier_document_date_issued": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A text field for Part 3, Item 9.b. to enter the date the last carrier document was issued. Format: mm/dd/yyyy.",
+      "extend_edit:bbox": {
+        "top": 678.002,
+        "left": 461.999,
+        "right": 576,
+        "bottom": 696.002
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1
+    },
+    "processing_info_carrier_document_disposition": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A text field for Part 3, Item 9.c. to describe the disposition of the last carrier document (e.g., attached, lost, etc.).",
+      "extend_edit:bbox": {
+        "top": 714.002,
+        "left": 342.592,
+        "right": 576.592,
+        "bottom": 732.002
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1
+    },
+    "applicant_statement_preparer_request_checkbox": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox in Part 4, Item 2, indicating that the applicant requested the preparer named in Part 6 to prepare the application based only on information provided or authorized by the applicant.",
+      "extend_edit:bbox": {
+        "top": 516.998,
+        "left": 61,
+        "right": 71,
+        "bottom": 526.998
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 2
+    },
+    "applicant_contact_info_mobile_telephone_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The mobile telephone number for the applicant, as requested in Part 4, Item Number 4.",
+      "extend_edit:bbox": {
+        "top": 653.967,
+        "left": 60.001,
+        "right": 293.922,
+        "bottom": 671.958
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 2,
+      "extend_edit:text_edit_options": {
+        "maxLength": 10
+      }
+    },
+    "information_about_you_mailing_address_province": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The province for the applicant's current mailing address, if applicable, as requested in Part 1, Item 3.g.",
+      "extend_edit:bbox": {
+        "top": 492.001,
+        "left": 402.174,
+        "right": 576.173,
+        "bottom": 510.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0,
+      "extend_edit:text_edit_options": {
+        "maxLength": 20
+      }
+    },
+    "information_about_you_mailing_address_zip_code": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The USPS ZIP Code for the applicant's current mailing address as requested in Part 1, Item 3.f.",
+      "extend_edit:bbox": {
+        "top": 468,
+        "left": 473.998,
+        "right": 575.997,
+        "bottom": 486
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0,
+      "extend_edit:text_edit_options": {
+        "maxLength": 5
+      }
+    },
+    "interpreter_mailing_address_apt_ste_flr_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The specific apartment, suite, or floor number for the interpreter's mailing address.",
+      "extend_edit:bbox": {
+        "top": 144.00300000000004,
+        "left": 186.001,
+        "right": 294.001,
+        "bottom": 162.00300000000004
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 6
+      }
+    },
+    "part_1_current_mailing_address_in_care_of_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the person who should receive mail on behalf of the applicant, if applicable, as part of the current mailing address in Part 1, Item 3.a.",
+      "extend_edit:bbox": {
+        "top": 371.999,
+        "left": 342,
+        "right": 576,
+        "bottom": 389.999
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0,
+      "extend_edit:text_edit_options": {
+        "maxLength": 34
+      }
+    },
+    "part_3_processing_info_date_of_intended_travel": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date the applicant intends to travel to the United States, formatted as mm/dd/yyyy.",
+      "extend_edit:bbox": {
+        "top": 203.99800000000005,
+        "left": 491.998,
+        "right": 575.997,
+        "bottom": 221.99800000000005
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1
+    },
+    "processing_information_exclusion_proceedings_no": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating 'No' to whether the applicant is now or has ever been in exclusion, deportation, removal, or rescission proceedings.",
+      "extend_edit:bbox": {
+        "top": 436.003,
+        "left": 542.16,
+        "right": 552.16,
+        "bottom": 446.003
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "additional_information_alien_registration_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The applicant's Alien Registration Number (A-Number), pre-populated from Part 1, used to identify the applicant on supplemental sheets.",
+      "extend_edit:bbox": {
+        "top": 252,
+        "left": 164.948,
+        "right": 293.958,
+        "bottom": 270
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 5,
+      "extend_edit:text_edit_options": {
+        "combing": true,
+        "maxLength": 9
+      }
+    },
+    "processing_information_exclusion_proceedings_yes": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox indicating 'Yes' to whether the applicant is now or has ever been in exclusion, deportation, removal, or rescission proceedings. If checked, details must be provided in Part 7.",
+      "extend_edit:bbox": {
+        "top": 436,
+        "left": 506.16,
+        "right": 516.16,
+        "bottom": 446
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "information_about_you_mailing_address_postal_code": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The postal code for the applicant's current mailing address, if applicable, as requested in Part 1, Item 3.h.",
+      "extend_edit:bbox": {
+        "top": 515.999,
+        "left": 402.174,
+        "right": 576.173,
+        "bottom": 533.999
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0,
+      "extend_edit:text_edit_options": {
+        "maxLength": 9
+      }
+    },
+    "part_1_current_mailing_address_apt_ste_flr_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The specific apartment, suite, or floor number for the current mailing address in Part 1, Item 3.c.",
+      "extend_edit:bbox": {
+        "top": 420.001,
+        "left": 468,
+        "right": 576,
+        "bottom": 438.001
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0,
+      "extend_edit:text_edit_options": {
+        "maxLength": 6
+      }
+    },
+    "reason_for_application_card_issued_never_received": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox for Part 2, Item 1.b. indicating that the previous Permanent Resident Card was issued but never received.",
+      "extend_edit:bbox": {
+        "top": 540.998,
+        "left": 60.999,
+        "right": 70.999,
+        "bottom": 550.998
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "reason_for_application_i512_lost_stolen_destroyed": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox for Part 2, Item 1.e. indicating that the applicant's existing Form I-512/I-512L Advance Parole Document has been lost, stolen, or destroyed.",
+      "extend_edit:bbox": {
+        "top": 631.001,
+        "left": 60.999,
+        "right": 70.999,
+        "bottom": 641.001
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "reason_for_application_i766_lost_stolen_destroyed": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox for Part 2, Item 1.g. indicating that the applicant's existing Form I-766 Employment Authorization Document (with travel endorsement) has been lost, stolen, or destroyed.",
+      "extend_edit:bbox": {
+        "top": 690.999,
+        "left": 60.999,
+        "right": 70.999,
+        "bottom": 700.999
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "reason_for_application_lost_stolen_destroyed_card": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A checkbox for Part 2, Item 1.a., indicating the reason for application is that a previous Permanent Resident Card has been lost, stolen, or destroyed.",
+      "extend_edit:bbox": {
+        "top": 510.996,
+        "left": 60.999,
+        "right": 70.999,
+        "bottom": 520.996
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "interpreter_mailing_address_street_number_and_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The street number and name for the interpreter's mailing address as part of the interpreter's contact information.",
+      "extend_edit:bbox": {
+        "top": 120.00199999999995,
+        "left": 126,
+        "right": 294.001,
+        "bottom": 138.00199999999995
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 3,
+      "extend_edit:text_edit_options": {
+        "maxLength": 34
+      }
+    },
+    "part_1_current_mailing_address_street_number_and_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The street number and name for the applicant's current mailing address in Part 1, Item 3.b.",
+      "extend_edit:bbox": {
+        "top": 396,
+        "left": 407.999,
+        "right": 576,
+        "bottom": 414
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 0,
+      "extend_edit:text_edit_options": {
+        "maxLength": 34
+      }
+    },
+    "reason_for_application_damaged_ead_travel_endorsement": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Checkbox for Part 2, Item 1.h. indicating that the applicant's existing Form I-766, Employment Authorization Document (with travel endorsement), has been damaged.",
+      "extend_edit:bbox": {
+        "top": 54.99800000000005,
+        "left": 342.998,
+        "right": 352.998,
+        "bottom": 64.99800000000005
+      },
+      "extend_edit:field_type": "checkbox",
+      "extend_edit:page_index": 1
+    },
+    "part_3_processing_info_permanent_resident_card_expiration_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The expiration date of the applicant's existing Permanent Resident Card, formatted as mm/dd/yyyy.",
+      "extend_edit:bbox": {
+        "top": 239.99800000000005,
+        "left": 491.998,
+        "right": 575.997,
+        "bottom": 257.99800000000005
+      },
+      "extend_edit:field_type": "text",
+      "extend_edit:page_index": 1
+    }
+  }
+}
