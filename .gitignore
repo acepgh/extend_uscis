@@ -12,6 +12,6 @@ obj/
 # Configuration with secrets
 appsettings.json
 
-# Downloaded forms and generated schemas
-forms/
+# Generated schemas (keep PDFs but ignore generated output)
 output/
+*_Extend_Schema.json
